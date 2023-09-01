@@ -7,8 +7,11 @@ services:
       dockerfile: Dockerfile
     container_name: nginx-desafio
     restart: always
+    # entrypoint: dockerize --wait tcp://app:3000 --timeout 20s docker-entrypoint.sh
     networks:
       - desafio_docker_node_net
+    # volumes:
+    #   - ./nginx:/user/src/app
     tty: true 
     ports:
       - "8080:80"
@@ -21,6 +24,7 @@ services:
       dockerfile: Dockerfile
     container_name: app-desafio
     restart: always
+    # entrypoint: dockerize --wait tcp://db:3306 --timeout 20s docker-entrypoint.sh
     networks:
       - desafio_docker_node_net
     volumes:
