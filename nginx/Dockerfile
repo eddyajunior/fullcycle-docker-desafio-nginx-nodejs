@@ -1,13 +1,6 @@
-FROM nginx:latest
+FROM nginx:1.15.0-alpine
 
 RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# ENV DOCKERIZE_VERSION v0.7.0
-
-# RUN apt-get update  -y \
-#     && apt-get install -y wget \
-#     && wget -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz | tar xzf - -C /usr/local/bin \
-#     && apt-get autoremove -yqq --purge wget && rm -rf /var/lib/apt/lists/*
+COPY nginx.conf /etc/nginx/conf.d
 
 RUN mkdir /var/www/node/public -p && touch /var/www/node/public/teste.js

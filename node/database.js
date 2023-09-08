@@ -7,8 +7,7 @@ const config = {
     port: 3306,
     user: 'root',
     password: 'pwd-desafio',
-    database: 'desafiodb',
-    connectionLimit: 10
+    database: 'docker-db-desafio'
 };
 
 const mysql = require('mysql');
